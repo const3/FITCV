@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -8,13 +10,17 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <bottom>
-      <Button fx:id="start_btn" mnemonicParsing="false" onAction="#startCamera" text="Encender Camara" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="50.0" />
-         </BorderPane.margin>
-      </Button>
+      <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </bottom>
-   <center>
-      <ImageView fx:id="currentFrame" fitHeight="291.0" fitWidth="325.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-   </center>
+   <top>
+      <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Untitled Tab 1" />
+          <Tab text="Untitled Tab 2" />
+        </tabs>
+      </TabPane>
+   </right>
 </BorderPane>
