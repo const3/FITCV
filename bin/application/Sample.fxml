@@ -12,6 +12,17 @@
    <bottom>
       <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </bottom>
+   <Button layoutX="300" layoutY="90" text="PA" onAction="#handleButtonAction" fx:id="button" />
+        <Button layoutX="340" layoutY="90" text="PB" onAction="#set" fx:id="button2" />
+        
+        <Button layoutX="300" layoutY="140" text="botonPA"  fx:id="button1A" />
+        <Button layoutX="300" layoutY="190" text="botonPB"  fx:id="button1B" />
+        
+        <Button layoutX="300" layoutY="140" text="boton11"  fx:id="buttonA" />
+        <Button layoutX="300" layoutY="190" text="boton22"  fx:id="buttonB" />
+       
+        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+
    <top>
       <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </top>
