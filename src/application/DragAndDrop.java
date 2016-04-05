@@ -30,7 +30,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
  
-package hellodraganddrop;
+package application;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
