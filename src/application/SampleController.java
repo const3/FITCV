@@ -4,6 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
@@ -20,6 +22,14 @@ import javafx.scene.image.ImageView;
 public class SampleController {
 		@FXML
 		private Button start_btn;
+		
+		@FXML private Button button2;
+	    @FXML private Button buttonA;
+	    @FXML private Button button;
+	    @FXML private Button buttonB;
+	    @FXML private Button button1A;
+	    @FXML private Button button1B;
+		
 		@FXML
 		private ImageView currentFrame;
 		
@@ -28,8 +38,10 @@ public class SampleController {
 		private boolean cameraActive = false;
 		
 		@FXML
+		
 		protected void startCamera(ActionEvent event)
 		{	
+			Button button1 = new Button();
 			System.out.println("hola");
 			if (!this.cameraActive)
 			{
@@ -94,10 +106,44 @@ public class SampleController {
 			}
 			return imageToShow;
 		}
+		
 		private Image mat2Image(Mat frame)
 		{
 			MatOfByte buffer = new MatOfByte();
 			Imgcodecs.imencode(".png", frame, buffer);
 			return new Image(new ByteArrayInputStream(buffer.toArray()));
 		}
+		
+		@FXML
+	    private void handleButtonAction(ActionEvent event) {
+	        //System.out.println("You clicked me!");
+	        //label.setText("Hello World!");
+	        button1A.setVisible(true);
+	        button1B.setVisible(true);
+	        
+	        buttonA.setVisible(false);
+	               buttonB.setVisible(false);
+	    }
+	    @FXML
+	    private void set(ActionEvent event){
+	               // System.out.println("si funciono");
+	               //label.setText("soy boton 2");
+	               buttonA.setVisible(true);
+	               buttonB.setVisible(true);
+	               
+	               button1A.setVisible(false);
+	        button1B.setVisible(false);
+	    }
+	    
+	    public void initialize(URL url, ResourceBundle rb) {
+	        // TODO
+	        buttonA.setVisible(false);
+	        buttonB.setVisible(false);
+	        button1A.setVisible(false);
+	        button1B.setVisible(false);
+	    }   
+		
+		
+		
+		
 }
