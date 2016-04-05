@@ -116,8 +116,7 @@ public class SampleController {
 		
 		@FXML
 	    private void handleButtonAction(ActionEvent event) {
-	        //System.out.println("You clicked me!");
-	        //label.setText("Hello World!");
+	        
 	        button1A.setVisible(true);
 	        button1B.setVisible(true);
 	        
@@ -126,8 +125,7 @@ public class SampleController {
 	    }
 	    @FXML
 	    private void set(ActionEvent event){
-	               // System.out.println("si funciono");
-	               //label.setText("soy boton 2");
+	               
 	               buttonA.setVisible(true);
 	               buttonB.setVisible(true);
 	               
