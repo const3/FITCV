@@ -8,30 +8,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
-   <bottom>
-      <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </bottom>
-   <Button layoutX="300" layoutY="90" text="PA" onAction="#handleButtonAction" fx:id="button" />
-        <Button layoutX="340" layoutY="90" text="PB" onAction="#set" fx:id="button2" />
-        
-        <Button layoutX="300" layoutY="140" text="botonPA"  fx:id="button1A" />
-        <Button layoutX="300" layoutY="190" text="botonPB"  fx:id="button1B" />
-        
-        <Button layoutX="300" layoutY="140" text="boton11"  fx:id="buttonA" />
-        <Button layoutX="300" layoutY="190" text="boton22"  fx:id="buttonB" />
-       
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+	prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.SampleController">
+	<bottom>
+		<Region prefHeight="200.0" prefWidth="200.0"
+			BorderPane.alignment="CENTER" />
+	</bottom>
 
-   <top>
-      <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </top>
-   <right>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="Untitled Tab 1" />
-          <Tab text="Untitled Tab 2" />
-        </tabs>
-      </TabPane>
-   </right>
+
+	<top>
+		<Region prefHeight="200.0" prefWidth="200.0"
+			BorderPane.alignment="CENTER" />
+	</top>
+	<right>
+
+		<AnchorPane prefHeight="200.0" prefWidth="200.0"
+			BorderPane.alignment="CENTER">
+			<children>
+				<Button fx:id="button" layoutX="30.0" layoutY="81.0"
+					onAction="#handleButtonAction" text="PA" />
+				<Button fx:id="button2" layoutX="114.0" layoutY="81.0"
+					onAction="#set" text="PB" />
+
+				<Button fx:id="button1A" layoutX="90.0" layoutY="136.0" text="botonPA" />
+				<Button fx:id="button1B" layoutX="90.0" layoutY="176.0" text="botonPB" />
+
+				<Button fx:id="buttonA" layoutX="15.0" layoutY="136.0" text="boton11" />
+				<Button fx:id="buttonB" layoutX="13.0" layoutY="176.0" text="boton22" />
+
+				<Label fx:id="label" layoutX="126" layoutY="120" minHeight="16"
+					minWidth="69" />
+			</children>
+		</AnchorPane>
+	</right>
+	<left>
+	</left>
 </BorderPane>
