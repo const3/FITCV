@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -12,5 +14,10 @@
             <fx:include source="Menu.fxml" />
          </content>
       </ScrollPane>
+      <Label fx:id="dropLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="214.0" prefWidth="568.0" text="Arrastrar los elementos aquí...">
+         <font>
+            <Font name="Consolas" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
