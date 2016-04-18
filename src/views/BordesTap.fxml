@@ -9,5 +9,6 @@
    <children>
       <Label fx:id="cv_borde1" layoutX="6.0" layoutY="6.0" prefHeight="17.0" prefWidth="126.0" text="Bordes 1" />
       <Label fx:id="cv_borde2" layoutX="6.0" layoutY="23.0" prefHeight="17.0" prefWidth="126.0" text="Bordes 2" />
+      <Label fx:id="cv_borde3" layoutX="6.0" layoutY="40.0" prefHeight="17.0" prefWidth="126.0" text="Bordes 3" />
    </children>
 </AnchorPane>
