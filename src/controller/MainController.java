@@ -20,13 +20,14 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import utilerias.BaseController;
 import utilerias.ProcesarCV;
 
-public class MainController implements Initializable {
+public class MainController extends BaseController implements Initializable {
 	@FXML
 	private Text dragText;
 	@FXML
-	private Label dropLabel;
+	private Label cv_dropLabel;
 	@FXML
 	private Button run;
 	@FXML
@@ -39,40 +40,40 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println("Iniciando MainController");
-		dropLabel.setStyle("-fx-background-color: #D0D6DC;");
-		dropLabel.setOnDragOver(new EventHandler<DragEvent>() {
+		cv_dropLabel.setStyle("-fx-background-color: #D0D6DC;");
+		cv_dropLabel.setOnDragOver(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
-				if (event.getGestureSource() != dropLabel && event.getDragboard().hasString()) {
+				if (event.getGestureSource() != cv_dropLabel && event.getDragboard().hasString()) {
 					event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
 				}
 				event.consume();
 			}
 		});
 
-		dropLabel.setOnDragEntered(new EventHandler<DragEvent>() {
+		cv_dropLabel.setOnDragEntered(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				System.out.println("onDragEntered");
-				if (event.getGestureSource() != dropLabel && event.getDragboard().hasString()) {
-					dropLabel.setTextFill(Color.GREEN);
+				if (event.getGestureSource() != cv_dropLabel && event.getDragboard().hasString()) {
+					cv_dropLabel.setTextFill(Color.GREEN);
 				}
 				event.consume();
 			}
 		});
 
-		dropLabel.setOnDragExited(new EventHandler<DragEvent>() {
+		cv_dropLabel.setOnDragExited(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
-				dropLabel.setTextFill(Color.BLACK);
+				cv_dropLabel.setTextFill(Color.BLACK);
 				event.consume();
 			}
 		});
 
-		dropLabel.setOnDragDropped(new EventHandler<DragEvent>() {
+		cv_dropLabel.setOnDragDropped(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				Dragboard db = event.getDragboard();
 				boolean success = false;
 				if (db.hasString() && !db.getString().startsWith("Arrastrar")) {
 					elementos.append((elementos.length() > 0 ? ">" : "") + db.getString());
-					dropLabel.setText(elementos.toString());
+					cv_dropLabel.setText(elementos.toString());
 					success = true;
 				}
 				event.setDropCompleted(success);
@@ -86,9 +87,11 @@ public class MainController implements Initializable {
 		System.out.println("Procesando");
 		String[] aProcesar = elementos.toString().split(">");
 		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/descarga.jpeg");
-		Mat dst = src;
+		Mat dst = src, dstTemp = src;
 		for (String proceso : aProcesar) {
-			dst = procesarCV.procesando(dst, proceso);
+			dst = procesarCV.procesando(dstTemp, proceso);
+			dstTemp = new Mat();
+			dstTemp = dst;
 		}
 		System.out.println("Salio");
 		Image img = mat2Image(src);

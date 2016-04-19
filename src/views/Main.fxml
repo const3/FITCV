@@ -15,7 +15,7 @@
             <fx:include source="Menu.fxml" />
          </content>
       </ScrollPane>
-      <Label fx:id="dropLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="214.0" prefWidth="568.0" text="Arrastrar los elementos aquí...">
+      <Label fx:id="cv_dropLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="214.0" prefWidth="568.0" text="Arrastrar los elementos aquí...">
          <font>
             <Font name="Consolas" size="24.0" />
          </font>

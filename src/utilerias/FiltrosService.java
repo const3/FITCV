@@ -13,11 +13,12 @@ public class FiltrosService {
 		Imgproc.blur(dst, dst2, new Size(3, 3));
 		return dst2;
 	}
+
 	public Mat gaussianBlur(Mat src) {
 		System.out.println("Filtro");
 		Mat dst = new Mat(), dst2 = new Mat();
-		Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);
-		Imgproc.GaussianBlur(dst, dst2, new Size(3,3), 0);
+		// Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);
+		Imgproc.GaussianBlur(src, dst2, new Size(3, 3), 0);
 		return dst2;
 	}
 
