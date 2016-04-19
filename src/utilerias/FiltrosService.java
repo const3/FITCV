@@ -7,7 +7,6 @@ import org.opencv.imgproc.Imgproc;
 public class FiltrosService {
 
 	public Mat blur(Mat src) {
-		System.out.println("Filtro");
 		Mat dst = new Mat(), dst2 = new Mat();
 		Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);
 		Imgproc.blur(dst, dst2, new Size(3, 3));
@@ -15,15 +14,13 @@ public class FiltrosService {
 	}
 
 	public Mat gaussianBlur(Mat src) {
-		System.out.println("Filtro");
 		Mat dst = new Mat(), dst2 = new Mat();
-		// Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);
-		Imgproc.GaussianBlur(src, dst2, new Size(3, 3), 0);
+		Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);
+		Imgproc.GaussianBlur(dst, dst2, new Size(3, 3), 0);
 		return dst2;
 	}
 
 	public Mat escalaGrises(Mat src) {
-		System.out.println("Filtro");
 		Mat dst = new Mat();
 		Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);
 		return dst;
