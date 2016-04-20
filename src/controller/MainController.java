@@ -85,8 +85,9 @@ public class MainController extends BaseController implements Initializable {
 	@FXML
 	public void procesaImgCV() {
 		System.out.println("Procesando");
+		run.setText("Procesando...");
 		String[] aProcesar = elementos.toString().split(">");
-		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/descarga.jpeg");
+		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/pure1.jpg");
 		Mat dst = src, dstTemp = src;
 		for (String proceso : aProcesar) {
 			dst = procesarCV.procesando(dstTemp, proceso);
@@ -98,7 +99,7 @@ public class MainController extends BaseController implements Initializable {
 		original.setImage(img);
 		Image imgProc = mat2Image(dst);
 		procesada.setImage(imgProc);
-
+		run.setText("Run!");
 	}
 
 	private Image mat2Image(Mat toImg) {
