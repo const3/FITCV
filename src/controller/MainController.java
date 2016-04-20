@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -87,7 +88,7 @@ public class MainController extends BaseController implements Initializable {
 		System.out.println("Procesando");
 		run.setText("Procesando...");
 		String[] aProcesar = elementos.toString().split(">");
-		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/pure1.jpg");
+		Mat src = Imgcodecs.imread(String.valueOf(Main.extImage));
 		Mat dst = src, dstTemp = src;
 		for (String proceso : aProcesar) {
 			dst = procesarCV.procesando(dstTemp, proceso);
