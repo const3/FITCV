@@ -1,14 +1,20 @@
 package application;
 
+import java.awt.*;
 import java.io.File;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
+	private Desktop desktop = Desktop.getDesktop();
+	public static File extImage;
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -19,13 +25,17 @@ public class Main extends Application {
 			primaryStage.setTitle("JavaFX meets OpenCV");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("Open Resource File");
+			extImage = fileChooser.showOpenDialog(primaryStage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
-		System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
+//		System.load(new File("../opencv/build/lib/libopencv_java310.so").getAbsolutePath());
+		 System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
 		launch(args);
 	}
 }

@@ -2,7 +2,7 @@
 <component inheritJdk="true">
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$"/>
-	<levels>
-		<level name="opencv" value="project"/>
-	</levels>
+	<lib name="opencv-310.jar" scope="COMPILE">
+		<srcroot url="jar://$USER_HOME$/opencv/build/bin/opencv-310.jar!/"/>
+	</lib>
 </component>
