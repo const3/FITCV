@@ -87,7 +87,7 @@ public class MainController extends BaseController implements Initializable {
 		System.out.println("Procesando");
 		run.setText("Procesando...");
 		String[] aProcesar = elementos.toString().split(">");
-		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/pure1.jpg");
+		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/circle-logo-large.png");
 		Mat dst = src, dstTemp = src;
 		for (String proceso : aProcesar) {
 			dst = procesarCV.procesando(dstTemp, proceso);
