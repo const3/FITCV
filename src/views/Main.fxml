@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController" fx:id="AP">
    <children>
       <ScrollPane layoutX="598.0" prefHeight="641.0" prefWidth="202.0">
          <content>
@@ -23,5 +23,6 @@
       <ImageView fx:id="original" fitHeight="223.0" fitWidth="250.0" layoutX="19.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="procesada" fitHeight="223.0" fitWidth="250.0" layoutX="327.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="run" layoutX="85.0" layoutY="538.0" mnemonicParsing="false" onAction="#procesaImgCV" prefHeight="27.0" prefWidth="80.0" text="Run!" />
+      <Button fx:id="clear" layoutX="298.0" layoutY="538.0" mnemonicParsing="false" text="Clear" onAction="#clearAndSet"/>
    </children>
 </AnchorPane>

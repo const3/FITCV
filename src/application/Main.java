@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 	private Desktop desktop = Desktop.getDesktop();
-	public static File extImage;
+	public static File initImage;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -27,15 +27,15 @@ public class Main extends Application {
 			primaryStage.show();
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.setTitle("Open Resource File");
-			extImage = fileChooser.showOpenDialog(primaryStage);
+			initImage = fileChooser.showOpenDialog(primaryStage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
-//		System.load(new File("../opencv/build/lib/libopencv_java310.so").getAbsolutePath());
-		 System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
+		System.load(new File("../opencv/build/lib/libopencv_java310.so").getAbsolutePath());
+//		 System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
 		launch(args);
 	}
 }

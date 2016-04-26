@@ -1,9 +1,12 @@
 package controller;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -30,13 +33,14 @@ public class MainController extends BaseController implements Initializable {
 	@FXML
 	private Label cv_dropLabel;
 	@FXML
-	private Button run;
+	private Button run, clear;
 	@FXML
 	private ImageView original;
 	@FXML
 	private ImageView procesada;
 	private StringBuffer elementos = new StringBuffer();
 	ProcesarCV procesarCV = new ProcesarCV();
+    Mat src;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -89,7 +93,9 @@ public class MainController extends BaseController implements Initializable {
 		run.setText("Procesando...");
 		String[] aProcesar = elementos.toString().split(">");
 //		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/circle-logo-large.png");
-		Mat src = Imgcodecs.imread(String.valueOf(Main.extImage));
+        if (src == null){
+            src = Imgcodecs.imread(String.valueOf(Main.initImage));
+        }
 		Mat dst = src, dstTemp = src;
 		for (String proceso : aProcesar) {
 			dst = procesarCV.procesando(dstTemp, proceso);
@@ -103,6 +109,14 @@ public class MainController extends BaseController implements Initializable {
 		procesada.setImage(imgProc);
 		run.setText("Run!");
 	}
+
+    @FXML
+    public void clearAndSet(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        src = Imgcodecs.imread(String.valueOf(fileChooser.showOpenDialog((Stage)clear.getScene().getWindow())));
+
+    }
 
 	private Image mat2Image(Mat toImg) {
 		MatOfByte buffer = new MatOfByte();
