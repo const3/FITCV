@@ -36,8 +36,8 @@ public class DeteccionObjetosService {
 
 	public Mat circulos(Mat src) {
 		System.out.println("Filtro");
-		Mat dst = new Mat(), dst2 = src.clone();
-		Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);
+		Mat dst = new Mat();Mat dst2 = src.clone();
+		Imgproc.cvtColor(dst2, dst, Imgproc.COLOR_BGR2GRAY);
 		Imgproc.GaussianBlur(dst, dst, new Size(9, 9), 2, 2);
 		Mat circles = new Mat();
 		Imgproc.HoughCircles(dst, circles, Imgproc.CV_HOUGH_GRADIENT, 2.0, dst.rows() / 8, 100, 300, 20, 400);

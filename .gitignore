@@ -28,6 +28,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.classpath
 
 # Eclipse Core
 .project
@@ -45,7 +46,7 @@ local.properties
 .cproject
 
 # JDT-specific (Eclipse Java Development Tools)
-.classpath
+ñ.classpath
 
 # Java annotation processor (APT)
 .factorypath
