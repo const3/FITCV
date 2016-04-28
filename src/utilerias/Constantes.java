@@ -42,9 +42,32 @@ public class Constantes {
 	public static final String CANNY = "CANY";
 	public static final List<String> BORDES = Arrays.asList(LINEAS, CIRCULOS, CANNY);
 	// CONSTANTES DETECCION DE OBJETOS TOOLTIPS
-	public static final String TOOLTIP_LINEAS = "ESTO ES UN TOOLTIP PARA LINEAS";
-	public static final String TOOLTIP_CIRCULOS = "ESTO ES UN TOOLTIP PARA CIRCULOS";
-	public static final String TOOLTIP_CANNY = "ESTO ES UN TOOLTIP PARA CANY";
+	public static final String TOOLTIP_LINEAS = "Detecta líneas en una imagen\\"
+			+ "dst:  La salida del detector de bordes. Debe ser una imagen de escala de grises.\\"
+			+ "lines: Es un vector que almacena los parámetros  de las líneas detectadas, que son coordenadas del punto de intersección, \\"
+			+ "almacena la longitud de la línea y el ángulo que tiene.\\"
+			+ " rho : La resolución del parámetro en pixeles. Se usa 1 pixel. \\"
+			+ "theta: La resolución del parámetro  en radianes. Se uso 1 grado \\"
+			+ "threshold: El número mínimo de intersecciones para detectar una línea.S";
+	
+	public static final String TOOLTIP_CIRCULOS = "detecta círculos en una imagen.\\"
+			+ "src_gray: Imagen de entrada en escala de grises.\\"
+			+ "circles: vector que almacena el nombre de 3 valores : posición del centro( xc,yc)  r (radio) para cada círculo detectado.\\"
+			+ "HOUGH_GRADIENT: Define el método de detección.\\"
+			+ "dp = 1:  La relación inversa de la resolución.\\"
+			+ "min_dist = src_gray.rows/8: Distancia mínima entre los cetros detectados.\\"
+			+ "param_1 = 200: límite  superior para el detector de bordes interno de Canny.\\"
+			+ "param_2 = 100*: límite  para la detección de centros.\\"
+			+ "min_radius = 0: Radio mínimo a detectar. Si no se conoce, se pone cero por defecto.\\"
+			+ "max_radius = 0: Radio máximo a detectar. Si no se conoce, se pone cero por defecto.";
+
+	
+	public static final String TOOLTIP_CANNY = "detección de bordes\\"
+			+ "detected_edges: Almacena la Imagen en escala de grises\\"
+			+ "detected_edges: salida del detector (puede ser la misma que la entrada)"
+			+ "lowThreshold: límite menor para el detector de bordes introducido por el usuario por medio del Trackbar.\\"
+			+ "highThreshold: Se define en el programa como tres veces el lowThreshold\\"
+			+ "kernel_size: Se define que sea 3 (el tamaño del Kernel Sobel a ser utilizado internamente)";
 	// CONSTANTES DETECCION DE OBJETOS FIN
 
 	// MAP UTILIZADO PARA MOSTRAR LOS TOOLTIPS EN LA PANTALLA

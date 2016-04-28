@@ -11,6 +11,8 @@ import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
 
+import com.sun.javafx.collections.MappingChange.Map;
+
 import application.Main;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -40,7 +42,7 @@ public class MainController extends BaseController implements Initializable {
 	private ImageView procesada;
 	private StringBuffer elementos = new StringBuffer();
 	ProcesarCV procesarCV = new ProcesarCV();
-    Mat src;
+    Map src;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
