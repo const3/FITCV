@@ -42,7 +42,7 @@ public class MainController extends BaseController implements Initializable {
 	private ImageView procesada;
 	private StringBuffer elementos = new StringBuffer();
 	ProcesarCV procesarCV = new ProcesarCV();
-    Map src;
+    Mat src;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
