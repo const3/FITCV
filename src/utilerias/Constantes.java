@@ -27,8 +27,7 @@ public class Constantes {
 			+ "ancla - Píxel central predeterminado en el punto (-1, -1) significa que  está en el\\"
 			+ "centro situado con respecto a los píxeles vecinos.";
 	public static final String TOOLTIP_GAUSSIAN_BLUR = " Suaviza una imagen para mejorar la calidad de visualización eliminando\\"
-			+ "los granos conocidos como ruido que hacen borrosa una imagen.\\"
-			+ "src - recibe la imagen de entrada.//"
+			+ "los granos conocidos como ruido que hacen borrosa una imagen.\\" + "src - recibe la imagen de entrada.//"
 			+ "dst - recibe la imagen de salida del mismo tamaño y tipo que el de entrada.\\"
 			+ "Tamaño -. Tamaño del núcleo a utilizar (ancho de píxeles y alto de píxeles).\\"
 			+ "puede ser diferente, pero ambos deben ser positivos e impar. O bien, pueden ser cero\\"
@@ -49,19 +48,17 @@ public class Constantes {
 			+ " rho : La resolución del parámetro en pixeles. Se usa 1 pixel. \\"
 			+ "theta: La resolución del parámetro  en radianes. Se uso 1 grado \\"
 			+ "threshold: El número mínimo de intersecciones para detectar una línea.S";
-	
+
 	public static final String TOOLTIP_CIRCULOS = "detecta círculos en una imagen.\\"
 			+ "src_gray: Imagen de entrada en escala de grises.\\"
 			+ "circles: vector que almacena el nombre de 3 valores : posición del centro( xc,yc)  r (radio) para cada círculo detectado.\\"
-			+ "HOUGH_GRADIENT: Define el método de detección.\\"
-			+ "dp = 1:  La relación inversa de la resolución.\\"
+			+ "HOUGH_GRADIENT: Define el método de detección.\\" + "dp = 1:  La relación inversa de la resolución.\\"
 			+ "min_dist = src_gray.rows/8: Distancia mínima entre los cetros detectados.\\"
 			+ "param_1 = 200: límite  superior para el detector de bordes interno de Canny.\\"
 			+ "param_2 = 100*: límite  para la detección de centros.\\"
 			+ "min_radius = 0: Radio mínimo a detectar. Si no se conoce, se pone cero por defecto.\\"
 			+ "max_radius = 0: Radio máximo a detectar. Si no se conoce, se pone cero por defecto.";
 
-	
 	public static final String TOOLTIP_CANNY = "detección de bordes\\"
 			+ "detected_edges: Almacena la Imagen en escala de grises\\"
 			+ "detected_edges: salida del detector (puede ser la misma que la entrada)"
@@ -83,4 +80,16 @@ public class Constantes {
 		// DETECCION DE OBJETOS TOOLTIPS INICIO
 		).collect(Collectors.toMap((e) -> e.getKey(), (e) -> e.getValue())));
 	}
+
+	// Brillo contraste inicio
+	public static final String BRILLO = "BRILLO";
+	public static final String CONTRASTE = "CONSTRASTE";
+	// Brillo contraste fin
+	// operaciones morfologicas inicio
+	public static final String EROSION = "EROSIÓN";
+	public static final String DILATACION = "DILATACIÓN";
+	// operaciones morfologicas fin
+	// histograma inicio
+	public static final String HISTOGRAMA = "HISTOGRAMA";
+	// histograma fin
 }

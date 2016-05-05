@@ -1,17 +1,12 @@
 package controller;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
-
-import com.sun.javafx.collections.MappingChange.Map;
 
 import application.Main;
 import javafx.event.EventHandler;
@@ -26,6 +21,8 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import utilerias.BaseController;
 import utilerias.ProcesarCV;
 
@@ -42,7 +39,7 @@ public class MainController extends BaseController implements Initializable {
 	private ImageView procesada;
 	private StringBuffer elementos = new StringBuffer();
 	ProcesarCV procesarCV = new ProcesarCV();
-    Map src;
+    Mat src;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
