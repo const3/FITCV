@@ -1,36 +1,39 @@
 package controller;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfByte;
-import org.opencv.imgcodecs.Imgcodecs;
-
-import com.sun.javafx.collections.MappingChange.Map;
-
 import application.Main;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfByte;
+import org.opencv.imgcodecs.Imgcodecs;
 import utilerias.BaseController;
+import utilerias.Constantes;
 import utilerias.ProcesarCV;
 
+import java.io.ByteArrayInputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.ResourceBundle;
+
 public class MainController extends BaseController implements Initializable {
-	@FXML
+    @FXML
+    private VBox params;
+    @FXML
 	private Text dragText;
 	@FXML
 	private Label cv_dropLabel;
@@ -43,6 +46,8 @@ public class MainController extends BaseController implements Initializable {
 	private StringBuffer elementos = new StringBuffer();
 	ProcesarCV procesarCV = new ProcesarCV();
     Mat src;
+	ArrayList<String> arrayParams = new ArrayList<String>();
+	ArrayList<String> arrayProcesos = new ArrayList<String>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -85,6 +90,10 @@ public class MainController extends BaseController implements Initializable {
 				}
 				event.setDropCompleted(success);
 				event.consume();
+				arrayProcesos.add(elementos.toString());
+				for (String proceso : arrayProcesos) {
+					arrayParams = mostrarparams(proceso);
+				}
 			}
 		});
 	}
@@ -93,17 +102,14 @@ public class MainController extends BaseController implements Initializable {
 	public void procesaImgCV() {
 		System.out.println("Procesando");
 		run.setText("Procesando...");
-		String[] aProcesar = elementos.toString().split(">");
 //		Mat src = Imgcodecs.imread("/Users/Sam/Downloads/circle-logo-large.png");
         if (src == null){
             src = Imgcodecs.imread(String.valueOf(Main.initImage));
         }
 		Mat dst = src, dstTemp = src;
-		for (String proceso : aProcesar) {
-			dst = procesarCV.procesando(dstTemp, proceso);
-			dstTemp = new Mat();
-			dstTemp = dst;
-		}
+		dst = procesarCV.procesando(dstTemp, arrayProcesos.get(0), arrayParams);
+		dstTemp = new Mat();
+		dstTemp = dst;
 		System.out.println("Salio");
 		Image img = mat2Image(src);
 		original.setImage(img);
@@ -117,6 +123,20 @@ public class MainController extends BaseController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         src = Imgcodecs.imread(String.valueOf(fileChooser.showOpenDialog((Stage)clear.getScene().getWindow())));
+
+    }
+
+    @FXML
+    private ArrayList<String> mostrarparams(String tipoProceso){
+        ArrayList<String> parameters = new ArrayList<String>();
+		if (tipoProceso.equals(Constantes.BLUR)){
+            // for ()
+			TextField kernel = new TextField("3");
+            params.getChildren().addAll(new Label("Kernel: "),kernel);
+			parameters.add(kernel.getText());
+
+		}
+		return parameters;
 
     }
 
