@@ -1,6 +1,5 @@
 package application;
 
-import java.awt.*;
 import java.io.File;
 
 import javafx.application.Application;
@@ -12,7 +11,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-	private Desktop desktop = Desktop.getDesktop();
 	public static File initImage;
 
 	@Override
