@@ -1,6 +1,7 @@
 package utilerias;
 
 import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
@@ -36,7 +37,8 @@ public class DeteccionObjetosService {
 
 	public Mat circulos(Mat src) {
 		System.out.println("Filtro");
-		Mat dst = new Mat();Mat dst2 = src.clone();
+		Mat dst = new Mat();
+		Mat dst2 = src.clone();
 		Imgproc.cvtColor(dst2, dst, Imgproc.COLOR_BGR2GRAY);
 		Imgproc.GaussianBlur(dst, dst, new Size(9, 9), 2, 2);
 		Mat circles = new Mat();
@@ -66,6 +68,31 @@ public class DeteccionObjetosService {
 
 	}
 
+	public Mat sobelEdgeDetector(Mat src) {
+		System.out.println("");
+		Mat source = src.clone();
+		Mat src_gray = new Mat(), grad = new Mat();
+		int scale = 1;
+		int delta = 0;
+		int ddepth = CvType.CV_16S;
+		Imgproc.GaussianBlur(source, source, new Size(3, 3), 0, 0, 1);
+
+		Imgproc.cvtColor(source, src_gray, Imgproc.COLOR_BGR2GRAY);
+
+		Mat grad_x = new Mat(), grad_y = new Mat();
+		Mat abs_grad_x = new Mat(), abs_grad_y = new Mat();
+
+		Imgproc.Sobel(src_gray, grad_x, ddepth, 1, 0, 3, scale, delta, 1);
+		Core.convertScaleAbs(grad_x, abs_grad_x);
+
+		Imgproc.Sobel(src_gray, grad_y, ddepth, 0, 1, 3, scale, delta, 1);
+		Core.convertScaleAbs(grad_y, abs_grad_y);
+
+		Core.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
+
+		return grad;
+	}
+
 	public Mat seleccionarProceso(Mat src, String proceso) {
 		Mat dst = new Mat();
 		switch (proceso) {
@@ -77,6 +104,9 @@ public class DeteccionObjetosService {
 			break;
 		case Constantes.CANNY:
 			dst = canny(src);
+			break;
+		case Constantes.SOBEL:
+			dst = sobelEdgeDetector(src);
 			break;
 		default:
 			System.out.println("No se selecciono un proceso existente");

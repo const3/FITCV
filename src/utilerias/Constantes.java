@@ -17,7 +17,9 @@ public class Constantes {
 	public static final String ESCALA_GRISES = "ESCALA_GRISES";
 	public static final String BLUR = "BLUR";
 	public static final String GAUSSIAN_BLUR = "GAUSSIAN_BLUR";
-	public static final List<String> FILTROS = Arrays.asList(ESCALA_GRISES, BLUR, GAUSSIAN_BLUR);
+	public static final String BILATERAL_FILTER = "BILATERAL_FILTER";
+	public static final String MEDIAN_FILTER = "MEDIAN_FILTER";
+	public static final List<String> FILTROS = Arrays.asList(ESCALA_GRISES, BLUR, GAUSSIAN_BLUR, BILATERAL_FILTER, MEDIAN_FILTER);
 	// CONSTANTES FILSTROS TOOLTIPS
 	public static final String TOOLTIP_ESCALA_GRISES = "Convierte imagen original a escala de grises para poder aplicar un filtro.";
 	public static final String TOOLTIP_BLUR = "Suaviza (desenfoca) la imagen original de tal forma que este se visualiza borrosa.\n "
@@ -40,7 +42,8 @@ public class Constantes {
 	public static final String LINEAS = "LINEAS";
 	public static final String CIRCULOS = "CIRCULOS";
 	public static final String CANNY = "CANY";
-	public static final List<String> BORDES = Arrays.asList(LINEAS, CIRCULOS, CANNY);
+	public static final String SOBEL = "SOBEL";
+	public static final List<String> BORDES = Arrays.asList(LINEAS, CIRCULOS, CANNY, SOBEL);
 	// CONSTANTES DETECCION DE OBJETOS TOOLTIPS
 	public static final String TOOLTIP_LINEAS = "Detecta líneas en una imagen\n"
 			+ "dst:  La salida del detector de bordes. Debe ser una imagen de escala de grises.\n"
