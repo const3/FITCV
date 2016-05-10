@@ -7,8 +7,8 @@ import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
-public class DeteccionObjetosService {
-	public Mat lineas(Mat src) {
+class DeteccionObjetosService {
+	private Mat lineas(Mat src) {
 		Mat mRgba = src.clone();
 		Mat thresholdImage = new Mat();
 		Imgproc.cvtColor(mRgba, thresholdImage, Imgproc.COLOR_RGB2GRAY, 4);
@@ -34,7 +34,7 @@ public class DeteccionObjetosService {
 		return mRgba;
 	}
 
-	public Mat circulos(Mat src) {
+	private Mat circulos(Mat src) {
 		System.out.println("Filtro");
 		Mat dst = new Mat();Mat dst2 = src.clone();
 		Imgproc.cvtColor(dst2, dst, Imgproc.COLOR_BGR2GRAY);
@@ -54,7 +54,7 @@ public class DeteccionObjetosService {
 		return dst2;
 	}
 
-	public Mat canny(Mat src) {
+	private Mat canny(Mat src) {
 		Mat grayImage = new Mat(), detectedEdges = new Mat();
 		Imgproc.cvtColor(src, grayImage, Imgproc.COLOR_BGR2GRAY);
 		Imgproc.blur(grayImage, detectedEdges, new Size(3, 3));
@@ -66,7 +66,7 @@ public class DeteccionObjetosService {
 
 	}
 
-	public Mat seleccionarProceso(Mat src, String proceso) {
+	Mat seleccionarProceso(Mat src, String proceso) {
 		Mat dst = new Mat();
 		switch (proceso) {
 		case Constantes.CIRCULOS:

@@ -5,7 +5,7 @@ import org.opencv.core.Mat;
 import java.util.ArrayList;
 
 public class ProcesarCV{
-	DeteccionObjetosService deteccionObjetosService = new DeteccionObjetosService();
+	private DeteccionObjetosService deteccionObjetosService = new DeteccionObjetosService();
 
 	public Mat procesando(Mat src, String tipoProceso, ArrayList<String> arrayParams) {
 		Mat dst = new Mat();

@@ -4,9 +4,9 @@ import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
-public class FiltrosService {
+class FiltrosService {
 
-	public Mat blur(Mat src, String kernel) {
+	Mat blur(Mat src, String kernel) {
 		int kernelI = Integer.parseInt(kernel);
 		Mat dst = new Mat(), dst2 = new Mat();
 		Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY);

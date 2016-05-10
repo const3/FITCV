@@ -5,12 +5,11 @@
  */
 package utilerias;
 
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
-//import org.opencv.highgui.Highgui;
 import org.opencv.imgproc.Imgproc;
+
+//import org.opencv.highgui.Highgui;
 public class Morfologicos {
     
     public Mat erosion( Mat src) {

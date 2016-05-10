@@ -1,8 +1,5 @@
 package application;
 
-import java.awt.*;
-import java.io.File;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,10 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class Main extends Application {
 
-	private Desktop desktop = Desktop.getDesktop();
-	public static File initImage;
+    public static File initImage;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -34,7 +32,8 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		System.load(new File("/Users/Documents/opencv-3.1.0/build/lib/libopencv_java310.so").getAbsolutePath());
+		System.load(new File("../opencv/build/lib/libopencv_java310.so").getAbsolutePath());
+//		System.load(new File("/Users/Documents/opencv-3.1.0/build/lib/libopencv_java310.so").getAbsolutePath());
 //		 System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
 		launch(args);
 	}
