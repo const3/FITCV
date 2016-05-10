@@ -21,6 +21,16 @@
                   <fx:include source="BordesTap.fxml" />
                </content>
           </Tab>
+            <Tab text="Brillo y contraste">
+               <content>
+                  <fx:include source="BordesTap.fxml" />
+               </content>
+            </Tab>
+            <Tab text="Morfologicos">
+               <content>
+                  <fx:include source="BordesTap.fxml" />
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

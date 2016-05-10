@@ -34,7 +34,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		System.load(new File("../opencv/build/lib/libopencv_java310.so").getAbsolutePath());
+		System.load(new File("/Users/Documents/opencv-3.1.0/build/lib/libopencv_java310.so").getAbsolutePath());
 //		 System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
 		launch(args);
 	}
