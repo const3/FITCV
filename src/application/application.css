@@ -1,0 +1,28 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.tab-pane 
+{
+-fx-skin: "com.sun.javafx.scene.control.skin.TabPaneSkin";
+-fx-tab-min-height: 2.8em;
+-fx-tab-max-height: 2.8em; 
+}
+/*
+.tab-pane .tab:selected
+{
+	-fx-skin: "com.sun.javafx.scene.control.skin.TabPaneSkin";
+    -fx-background-color: #3c3c3c;
+     -fx-tab-min-width: 8.583em;  
+-fx-tab-max-width: 8.583em;  
+-fx-tab-width: 8.583em;  
+}
+.tab:selected  {
+	-fx-skin: "com.sun.javafx.scene.control.skin.TabPaneSkin";
+     -fx-tab-min-width: 8.583em;  
+-fx-tab-max-width: 8.583em;  
+-fx-tab-width: 8.583em;  
+}
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
+}
+* 
+*/
