@@ -1,7 +1,5 @@
 package application;
 
-import java.io.File;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +19,7 @@ public class Main extends Application {
 
 			Parent root = FXMLLoader.load(getClass().getResource("/views/Main.fxml"));
 			Scene scene = new Scene(root);
-			 scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("JavaFX meets OpenCV");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -34,8 +32,8 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-//		System.load(new File("../opencv/build/lib/libopencv_java310.so").getAbsolutePath());
-		 System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
+		System.load(new File("../opencv/build/lib/libopencv_java310.so").getAbsolutePath());
+//		 System.load(new File("/Users/Sam/opencv-3.1.0/build/lib/opencv_java310.so").getAbsolutePath());
 		launch(args);
 	}
 }

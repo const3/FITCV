@@ -1,14 +1,5 @@
 package controller;
 
-import java.io.ByteArrayInputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfByte;
-import org.opencv.imgcodecs.Imgcodecs;
-
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
