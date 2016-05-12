@@ -1,5 +1,14 @@
 package controller;
 
+import java.io.ByteArrayInputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfByte;
+import org.opencv.imgcodecs.Imgcodecs;
+
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -120,6 +130,57 @@ public class MainController extends BaseController implements Initializable {
             params.getChildren().addAll(new Label("Kernel: "),kernel);
 			parameters.add(kernel.getText());
 
+		}
+		
+		if (tipoProceso.equals(Constantes.GAUSSIAN_BLUR)){
+			// for ()
+			TextField kernel = new TextField("3");
+			params.getChildren().addAll(new Label("Kernel: "),kernel);
+			parameters.add(kernel.getText());
+			TextField sigmaX = new TextField("3");
+			params.getChildren().addAll(new Label("sigmaX: "),kernel);
+			parameters.add(sigmaX.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.BILATERAL_FILTER)){
+			// for ()
+			TextField delta = new TextField("3");
+			params.getChildren().addAll(new Label("delta: "),delta);
+			parameters.add(delta.getText());
+			TextField sigmaColor = new TextField("3");
+			params.getChildren().addAll(new Label("sigmaColor: "),sigmaColor);
+			parameters.add(sigmaColor.getText());
+			TextField sigmaSpace = new TextField("3");
+			params.getChildren().addAll(new Label("sigmaSpace: "),sigmaSpace);
+			parameters.add(sigmaSpace.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.MEDIAN_FILTER)){
+			// for ()
+			TextField kernel = new TextField("3");
+			params.getChildren().addAll(new Label("Kernel: "),kernel);
+			parameters.add(kernel.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.CANNY)){
+			// for ()
+			TextField threshold = new TextField("3");
+			params.getChildren().addAll(new Label("threshold: "),threshold);
+			parameters.add(threshold.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.SOBEL)){
+			// for ()
+			TextField threshold = new TextField("3");
+			params.getChildren().addAll(new Label("threshold: "),threshold);
+			parameters.add(threshold.getText());
+			TextField scala = new TextField("3");
+			params.getChildren().addAll(new Label("scala: "),scala);
+			parameters.add(scala.getText());
+			TextField delta = new TextField("3");
+			params.getChildren().addAll(new Label("delta: "),delta);
+			parameters.add(delta.getText());
+			
 		}
 		return parameters;
 
