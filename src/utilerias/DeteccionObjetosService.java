@@ -58,7 +58,7 @@ class DeteccionObjetosService {
 		return dst2;
 	}
 
-	public Mat canny(Mat src, String thresholdTmp) {
+	private Mat canny(Mat src, String thresholdTmp) {
 		double threshold =Double.parseDouble(thresholdTmp);
 		Mat grayImage = new Mat(), detectedEdges = new Mat();
 		Imgproc.cvtColor(src, grayImage, Imgproc.COLOR_BGR2GRAY);
@@ -71,7 +71,7 @@ class DeteccionObjetosService {
 
 	}
 
-	public Mat sobelEdgeDetector(Mat src, String kernelTmp, String scalaTmp, String deltaTmp) {
+	private Mat sobelEdgeDetector(Mat src, String kernelTmp, String scalaTmp, String deltaTmp) {
 		System.out.println("");
 		Mat source = src.clone();
 		Mat src_gray = new Mat(), grad = new Mat();
@@ -97,7 +97,7 @@ class DeteccionObjetosService {
 		return grad;
 	}
 
-	public Mat seleccionarProceso(Mat src, String proceso,ArrayList<String> arrayParams) {
+	Mat seleccionarProceso(Mat src, String proceso, ArrayList<String> arrayParams) {
 		Mat dst = new Mat();
 		switch (proceso) {
 		case Constantes.CIRCULOS:

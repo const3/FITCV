@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="AP" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
-   <children>
-      <ScrollPane layoutX="629.0" prefHeight="641.0" prefWidth="202.0">
-         <content>
-            <fx:include source="Menu.fxml" />
-         </content>
-      </ScrollPane>
-      <Label fx:id="cv_dropLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="182.0" prefWidth="568.0" text="Arrastrar los elementos aquí...">
-         <font>
-            <Font name="Consolas" size="24.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="original" fitHeight="223.0" fitWidth="250.0" layoutX="30.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="procesada" fitHeight="223.0" fitWidth="250.0" layoutX="338.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="run" layoutX="188.0" layoutY="585.0" mnemonicParsing="false" onAction="#procesaImgCV" prefHeight="27.0" prefWidth="80.0" text="Run!" />
-      <Button fx:id="clear" layoutX="358.0" layoutY="585.0" mnemonicParsing="false" onAction="#clearAndSet" text="Clear" />
-      <VBox fx:id="params" layoutX="50.0" layoutY="455.0" prefHeight="99.0" prefWidth="490.0" />
-   </children>
+<AnchorPane fx:id="AP" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <ScrollPane layoutX="629.0" prefHeight="641.0" prefWidth="202.0">
+      <fx:include source="Menu.fxml"/>
+   </ScrollPane>
+   <Label fx:id="cv_dropLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0"
+          prefHeight="182.0" prefWidth="568.0" text="Arrastrar los elementos aquí...">
+      <font>
+         <Font name="Consolas" size="24.0"/>
+      </font>
+   </Label>
+   <ImageView fx:id="original" fitHeight="223.0" fitWidth="250.0" layoutX="30.0" layoutY="209.0" pickOnBounds="true"
+              preserveRatio="true"/>
+   <ImageView fx:id="procesada" fitHeight="223.0" fitWidth="250.0" layoutX="338.0" layoutY="209.0" pickOnBounds="true"
+              preserveRatio="true"/>
+   <Button fx:id="run" layoutX="188.0" layoutY="585.0" mnemonicParsing="false" onAction="#procesaImgCV"
+           prefHeight="27.0" prefWidth="80.0" text="Run!"/>
+   <Button fx:id="clear" layoutX="358.0" layoutY="585.0" mnemonicParsing="false" onAction="#clearAndSet" text="Clear"/>
+   <ScrollPane layoutX="50.0" layoutY="444.0" prefHeight="126.0" prefWidth="490.0">
+      <VBox fx:id="params" prefHeight="126.0" prefWidth="490.0"/>
+   </ScrollPane>
 </AnchorPane>

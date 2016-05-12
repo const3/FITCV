@@ -8,8 +8,6 @@ package utilerias;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
-//import org.opencv.highgui.Highgui;
-
 public class BrilloContraste {
    static int width;
    static int height;
