@@ -1,5 +1,7 @@
 package utilerias;
 
+import java.util.ArrayList;
+
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -56,11 +58,12 @@ public class DeteccionObjetosService {
 		return dst2;
 	}
 
-	public Mat canny(Mat src) {
+	public Mat canny(Mat src, String thresholdTmp) {
+		double threshold =Double.parseDouble(thresholdTmp);
 		Mat grayImage = new Mat(), detectedEdges = new Mat();
 		Imgproc.cvtColor(src, grayImage, Imgproc.COLOR_BGR2GRAY);
 		Imgproc.blur(grayImage, detectedEdges, new Size(3, 3));
-		Imgproc.Canny(detectedEdges, detectedEdges, 3.0, 3.0 * 3, 3, false);
+		Imgproc.Canny(detectedEdges, detectedEdges, threshold, threshold * 3, 3, false);
 		Mat dest = new Mat();
 		Core.add(dest, Scalar.all(0), dest);
 		src.copyTo(dest, detectedEdges);
@@ -68,12 +71,13 @@ public class DeteccionObjetosService {
 
 	}
 
-	public Mat sobelEdgeDetector(Mat src) {
+	public Mat sobelEdgeDetector(Mat src, String kernelTmp, String scalaTmp, String deltaTmp) {
 		System.out.println("");
 		Mat source = src.clone();
 		Mat src_gray = new Mat(), grad = new Mat();
-		int scale = 1;
-		int delta = 0;
+		int scale = Integer.parseInt(scalaTmp);
+		int delta = Integer.parseInt(deltaTmp);
+		int kernel = Integer.parseInt(kernelTmp);
 		int ddepth = CvType.CV_16S;
 		Imgproc.GaussianBlur(source, source, new Size(3, 3), 0, 0, 1);
 
@@ -82,10 +86,10 @@ public class DeteccionObjetosService {
 		Mat grad_x = new Mat(), grad_y = new Mat();
 		Mat abs_grad_x = new Mat(), abs_grad_y = new Mat();
 
-		Imgproc.Sobel(src_gray, grad_x, ddepth, 1, 0, 3, scale, delta, 1);
+		Imgproc.Sobel(src_gray, grad_x, ddepth, 1, 0, kernel, scale, delta, 1);
 		Core.convertScaleAbs(grad_x, abs_grad_x);
 
-		Imgproc.Sobel(src_gray, grad_y, ddepth, 0, 1, 3, scale, delta, 1);
+		Imgproc.Sobel(src_gray, grad_y, ddepth, 0, 1, kernel, scale, delta, 1);
 		Core.convertScaleAbs(grad_y, abs_grad_y);
 
 		Core.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
@@ -93,7 +97,7 @@ public class DeteccionObjetosService {
 		return grad;
 	}
 
-	public Mat seleccionarProceso(Mat src, String proceso) {
+	public Mat seleccionarProceso(Mat src, String proceso,ArrayList<String> arrayParams) {
 		Mat dst = new Mat();
 		switch (proceso) {
 		case Constantes.CIRCULOS:
@@ -103,10 +107,10 @@ public class DeteccionObjetosService {
 			dst = lineas(src);
 			break;
 		case Constantes.CANNY:
-			dst = canny(src);
+			dst = canny(src, arrayParams.get(0));
 			break;
 		case Constantes.SOBEL:
-			dst = sobelEdgeDetector(src);
+			dst = sobelEdgeDetector(src, arrayParams.get(0), arrayParams.get(1), arrayParams.get(2));
 			break;
 		default:
 			System.out.println("No se selecciono un proceso existente");
