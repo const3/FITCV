@@ -10,8 +10,8 @@ import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
-public class DeteccionObjetosService {
-	public Mat lineas(Mat src) {
+class DeteccionObjetosService {
+	private Mat lineas(Mat src) {
 		Mat mRgba = src.clone();
 		Mat thresholdImage = new Mat();
 		Imgproc.cvtColor(mRgba, thresholdImage, Imgproc.COLOR_RGB2GRAY, 4);
@@ -37,7 +37,7 @@ public class DeteccionObjetosService {
 		return mRgba;
 	}
 
-	public Mat circulos(Mat src) {
+	private Mat circulos(Mat src) {
 		System.out.println("Filtro");
 		Mat dst = new Mat();
 		Mat dst2 = src.clone();

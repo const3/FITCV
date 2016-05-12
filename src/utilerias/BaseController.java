@@ -1,17 +1,15 @@
 package utilerias;
 
-import java.lang.reflect.Field;
-
-import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 
+import java.lang.reflect.Field;
+
 public class BaseController {
-	public void setFieldsDragable(Class<?> clazzz) {
+	protected void setFieldsDragable(Class<?> clazzz) {
 		for (Field field : clazzz.getDeclaredFields()) {
 			if (field.getName().startsWith("cv_")) {
 				try {
@@ -20,18 +18,14 @@ public class BaseController {
 						Tooltip tooltip = new Tooltip(Constantes.TOOLTIPS().get(l.getText()));
 						l.setTooltip(tooltip);
 					}
-					l.setOnDragDetected(new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent event) {
-							Dragboard db = l.startDragAndDrop(TransferMode.ANY);
-							ClipboardContent content = new ClipboardContent();
-							content.putString(l.getText());
-							db.setContent(content);
-							event.consume();
-						}
-					});
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
+					l.setOnDragDetected(event -> {
+                        Dragboard db = l.startDragAndDrop(TransferMode.ANY);
+                        ClipboardContent content = new ClipboardContent();
+                        content.putString(l.getText());
+                        db.setContent(content);
+                        event.consume();
+                    });
+				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}
