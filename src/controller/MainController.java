@@ -107,6 +107,13 @@ public class MainController extends BaseController implements Initializable {
     public void clearAndSet(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
+        elementos= new StringBuffer();
+        cv_dropLabel.setText("Arrastrar elementos aquí...");
+        original.setImage(null);;
+        procesada.setImage(null);;
+        arrayParams.clear();
+        arrayProcesos.clear();
+        params.getChildren().clear();
         src = Imgcodecs.imread(String.valueOf(fileChooser.showOpenDialog(clear.getScene().getWindow())));
 
     }

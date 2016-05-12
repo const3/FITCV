@@ -2,27 +2,37 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="197.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.MenuController">
+<?import javafx.scene.image.*?>
 
-    <TabPane layoutX="405.0" prefHeight="491.0" prefWidth="693.0" tabClosingPolicy="UNAVAILABLE"
-             AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-             AnchorPane.topAnchor="0.0">
-        <Tab closable="false" text="Red. &#10;Ruido">
-            <fx:include source="FiltrosTab.fxml"/>
-        </Tab>
-        <Tab text="Rec. &#10;Patrones">
-            <fx:include source="BordesTap.fxml"/>
-        </Tab>
-        <Tab text="Brillo y&#10;Contraste">
-            <fx:include source="BrilloContrasteTab.fxml"/>
-        </Tab>
-        <Tab text="Op. &#10;Morfologícas">
-            <fx:include source="OperacionesMorfologicasTab.fxml"/>
-        </Tab>
-        <Tab text="Histograma">
-            <fx:include source="HistogramaTab.fxml"/>
-        </Tab>
-    </TabPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="197.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <TabPane layoutX="405.0" prefHeight="491.0" prefWidth="693.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab closable="false" text="Red. &#10;Ruido">
+               <content>
+                  <fx:include source="FiltrosTab.fxml" />
+               </content></Tab>
+          <Tab text="Rec. &#10;Patrones">
+               <content>
+                  <fx:include source="BordesTap.fxml" />
+               </content>
+          </Tab>
+            <Tab text="Brillo y&#10;Contraste">
+               <content>
+                  <fx:include source="BrilloContrasteTab.fxml" />
+               </content>
+            </Tab>
+            <Tab text="Op. &#10;Morfologícas">
+               <content>
+                  <fx:include source="OperacionesMorfologicasTab.fxml" />
+               </content>
+            </Tab>
+            <Tab text="Histograma">
+               <content>
+                  <fx:include source="HistogramaTab.fxml" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
 </AnchorPane>
