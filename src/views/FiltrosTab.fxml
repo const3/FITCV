@@ -2,8 +2,11 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane prefHeight="262.0" prefWidth="126.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FiltrosController">
+<AnchorPane prefHeight="262.0" prefWidth="126.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.FiltrosController">
    <Label fx:id="cv_filtro1" layoutX="6.0" layoutY="6.0" prefHeight="17.0" prefWidth="126.0" text="Filtros 1"/>
    <Label fx:id="cv_filtro2" layoutX="6.0" layoutY="23.0" prefHeight="17.0" prefWidth="126.0" text="Filtros 2"/>
-   <Label fx:id="cv_filtro3" layoutX="6.0" layoutY="40.0" prefHeight="17.0" prefWidth="126.0" text="Filtros 2"/>
+   <Label fx:id="cv_filtro3" layoutX="6.0" layoutY="40.0" prefHeight="17.0" prefWidth="126.0" text="Filtros 3"/>
+   <Label fx:id="cv_filtro4" layoutX="6.0" layoutY="57.0" prefHeight="17.0" prefWidth="126.0" text="Filtros 4"/>
+   <Label fx:id="cv_filtro5" layoutX="6.0" layoutY="74.0" prefHeight="17.0" prefWidth="126.0" text="Filtros 5"/>
 </AnchorPane>

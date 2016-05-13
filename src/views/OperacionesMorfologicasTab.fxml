@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="262.0" prefWidth="126.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.OperacionesMorfologicasController">
+   <Label fx:id="cv_erosion" layoutX="6.0" layoutY="6.0" prefHeight="17.0" prefWidth="126.0" text="Erosión"/>
+   <Label fx:id="cv_dilatacion" layoutX="6.0" layoutY="23.0" prefHeight="17.0" prefWidth="126.0" text="Dilatación"/>
+</AnchorPane>

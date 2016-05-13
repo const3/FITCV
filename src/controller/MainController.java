@@ -107,6 +107,13 @@ public class MainController extends BaseController implements Initializable {
     public void clearAndSet(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
+        elementos= new StringBuffer();
+        cv_dropLabel.setText("Arrastrar elementos aquí...");
+        original.setImage(null);;
+        procesada.setImage(null);;
+        arrayParams.clear();
+        arrayProcesos.clear();
+        params.getChildren().clear();
         src = Imgcodecs.imread(String.valueOf(fileChooser.showOpenDialog(clear.getScene().getWindow())));
 
     }
@@ -120,6 +127,57 @@ public class MainController extends BaseController implements Initializable {
             params.getChildren().addAll(new Label("Kernel: "),kernel);
 			parameters.add(kernel.getText());
 
+		}
+		
+		if (tipoProceso.equals(Constantes.GAUSSIAN_BLUR)){
+			// for ()
+			TextField kernel = new TextField("3");
+			params.getChildren().addAll(new Label("Kernel: "),kernel);
+			parameters.add(kernel.getText());
+			TextField sigmaX = new TextField("3");
+			params.getChildren().addAll(new Label("sigmaX: "),kernel);
+			parameters.add(sigmaX.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.BILATERAL_FILTER)){
+			// for ()
+			TextField delta = new TextField("3");
+			params.getChildren().addAll(new Label("delta: "),delta);
+			parameters.add(delta.getText());
+			TextField sigmaColor = new TextField("3");
+			params.getChildren().addAll(new Label("sigmaColor: "),sigmaColor);
+			parameters.add(sigmaColor.getText());
+			TextField sigmaSpace = new TextField("3");
+			params.getChildren().addAll(new Label("sigmaSpace: "),sigmaSpace);
+			parameters.add(sigmaSpace.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.MEDIAN_FILTER)){
+			// for ()
+			TextField kernel = new TextField("3");
+			params.getChildren().addAll(new Label("Kernel: "),kernel);
+			parameters.add(kernel.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.CANNY)){
+			// for ()
+			TextField threshold = new TextField("3");
+			params.getChildren().addAll(new Label("threshold: "),threshold);
+			parameters.add(threshold.getText());
+			
+		}
+		if (tipoProceso.equals(Constantes.SOBEL)){
+			// for ()
+			TextField threshold = new TextField("3");
+			params.getChildren().addAll(new Label("threshold: "),threshold);
+			parameters.add(threshold.getText());
+			TextField scala = new TextField("3");
+			params.getChildren().addAll(new Label("scala: "),scala);
+			parameters.add(scala.getText());
+			TextField delta = new TextField("3");
+			params.getChildren().addAll(new Label("delta: "),delta);
+			parameters.add(delta.getText());
+			
 		}
 		return parameters;
 

@@ -16,6 +16,8 @@ public class BordesController extends BaseController implements Initializable {
 	public Label cv_borde2;
 	@FXML
 	public Label cv_borde3;
+	@FXML
+	public Label cv_borde4;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -23,6 +25,7 @@ public class BordesController extends BaseController implements Initializable {
 		cv_borde1.setText(Constantes.LINEAS);
 		cv_borde2.setText(Constantes.CIRCULOS);
 		cv_borde3.setText(Constantes.CANNY);
+		cv_borde4.setText(Constantes.SOBEL);
 		setFieldsDragable(BordesController.class);
 
 	}
