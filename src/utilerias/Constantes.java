@@ -19,6 +19,8 @@ public class Constantes {
 	public static final String GAUSSIAN_BLUR = "GAUSSIAN_BLUR";
 	public static final String BILATERAL_FILTER = "BILATERAL_FILTER";
 	public static final String MEDIAN_FILTER = "MEDIAN_FILTER";
+	
+	
 	static final List<String> FILTROS = Arrays.asList(ESCALA_GRISES, BLUR, GAUSSIAN_BLUR, BILATERAL_FILTER, MEDIAN_FILTER);
 	// CONSTANTES FILSTROS TOOLTIPS
 	private static final String TOOLTIP_ESCALA_GRISES = "Convierte imagen original a escala de grises para poder aplicar un filtro.";
@@ -99,4 +101,12 @@ public class Constantes {
 	// histograma inicio
 	public static final String HISTOGRAMA = "HISTOGRAMA";
 	// histograma fin
+	
+	// Reduccion de ruido inicio
+		public static final String REDUCCIONDERUIDO = "REDUCCIONDERUIDO";
+		// reduccion de ruido fin
+		
+	// Reconocimiento de patrones inicio
+		public static final String RECONOCIMIENTODEPATRONES = "RECONOCIMIENTODEPATRONES";
+		// reconocimiento de patrones fin
 }

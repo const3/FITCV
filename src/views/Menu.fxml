@@ -32,6 +32,20 @@
                   <fx:include source="HistogramaTab.fxml" />
                </content>
             </Tab>
+            
+            <Tab text="Reconocimiento &#10;de patrones">
+               <content>
+                  <fx:include source="ReconocimientoDePatronesTab.fxml" />
+               </content>
+            </Tab>
+            
+               <Tab text="Reduccion &#10;de ruido">
+               <content>
+                  <fx:include source="ReduccionDeRuidoTab.fxml" />
+               </content>
+            </Tab>
+            
+            
         </tabs>
       </TabPane>
    </children>
