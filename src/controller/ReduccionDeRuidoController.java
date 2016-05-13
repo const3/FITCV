@@ -17,9 +17,7 @@ public class ReduccionDeRuidoController extends BaseController implements Initia
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println("Iniciando ReduccionDeRuidoController");
-		cv_freduccion.setText(Constantes.REDUCCIONDERUIDO);
 		
-		setFieldsDragable(ReduccionDeRuidoController.class);
 
 	}
 }

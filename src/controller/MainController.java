@@ -98,6 +98,10 @@ public class MainController extends BaseController implements Initializable {
         System.out.println("Salio");
 		Image img = mat2Image(src);
 		original.setImage(img);
+		if(procesada.getImage()!=null){
+			System.out.println("tieneimg");
+			procesada.setImage(null);
+		}
 		Image imgProc = mat2Image(dst);
 		procesada.setImage(imgProc);
 		run.setText("Run!");

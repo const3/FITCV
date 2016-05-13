@@ -1,14 +1,10 @@
 package utilerias;
 
-import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.core.Size;
 import org.opencv.core.Core;
-
-
-import org.opencv.imgcodecs.Imgcodecs; 
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Size;
+import org.opencv.imgproc.Imgproc; 
 
 public class ReduccionDeRuido {
 	
@@ -19,19 +15,19 @@ public class ReduccionDeRuido {
 		  int kernel_size = 3;
 		  int scale = 1;
 		  int delta = 0;
-		  int ddepth = CV_16S;
+		  int ddepth = CvType.CV_16S;
 		
 		int kernelI = Integer.parseInt(kernel);
 			
-		Imgproc.GaussianBlur( src, src, Size(3,3), 0, 0, 4 );
+		Imgproc.GaussianBlur( src, src, new Size(3,3), 0, 0, 4 );
 	
 		Imgproc.cvtColor(dst, dst2, Imgproc.COLOR_BGR2GRAY);
 	
 
-		Mat abs_dst;
+		Mat abs_dst = new Mat();
 
 		Imgproc.Laplacian( dst2, dst3, ddepth, kernel_size, scale, delta, 4 );
-		Imgproc.convertScaleAbs( dst3, abs_dst );
+		Core.convertScaleAbs( dst3, abs_dst );
 
 		
 		return abs_dst;

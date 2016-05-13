@@ -1,14 +1,15 @@
 package utilerias;
 
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.Point;
 import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
 import org.opencv.core.Size;
+import org.opencv.imgproc.Imgproc;
 
 public class ReconocimientoDePatrones {
 
-	
+	//TODO: Agregar el codigo correcto HarrisCorner
 	private Mat harris (Mat src) {
 		Mat dst = new Mat();
 		Mat dst2 = src.clone();
@@ -23,8 +24,8 @@ public class ReconocimientoDePatrones {
 		
 		Imgproc.cvtColor(src, dst, Imgproc.COLOR_BGR2GRAY); 
 	
-		  Mat  dst_norm, dst_norm_scaled;
-		  dst = Mat::zeros( src.size(), CV_32FC1 );
+		  Mat  dst_norm = new Mat(), dst_norm_scaled= new Mat();
+		  dst = new Mat( src.size(), CvType.CV_32FC1 );
 
 		  /// Detector parameters
 		  int blockSize = 2;
@@ -32,22 +33,12 @@ public class ReconocimientoDePatrones {
 		  double k = 0.04;
 
 		  /// Detecting corners
-		  Imgproc.cornerHarris( dts, dst2, blockSize, apertureSize, k, BORDER_DEFAULT );
+		  Imgproc.cornerHarris( dst, dst2, blockSize, apertureSize, k, 1 );
 
 		  /// Normalizing
-		  Imgproc. normalize( dst2, dst_norm, 0, 255, NORM_MINMAX, CV_32FC1, Mat() );
-		  Imgproc.convertScaleAbs( dst_norm, dst_norm_scaled );
+		  Core.convertScaleAbs( dst_norm, dst_norm_scaled );
 
 		  /// Drawing a circle around corners
-		  for( int j = 0; j < dst_norm.rows ; j++ )
-		     { for( int i = 0; i < dst_norm.cols; i++ )
-		          {
-		            if( (int) dst_norm.at<float>(j,i) > thresh )
-		              {
-		            	Imgproc.circle( dst_norm_scaled, Point( i, j ), 5,  Scalar(0), 2, 8, 0 );
-		              }
-		          }
-		     }
 		return  dst_norm_scaled;
 	}	
 }
