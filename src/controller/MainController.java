@@ -106,7 +106,7 @@ public class MainController extends BaseController implements Initializable {
 		procesada.setImage(imgProc);
 		run.setText("Run!");
 	}
-
+ 
     @FXML
     public void clearAndSet(){
         FileChooser fileChooser = new FileChooser();
